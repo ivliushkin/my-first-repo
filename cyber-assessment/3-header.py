@@ -3,5 +3,4 @@ import sys
 import urllib.request
 
 with urllib.request.urlopen(sys.argv[1]) as response:
-    sys.stdout.write(response.headers.get('X-Request-Id', ''))
-    sys.stdout.flush()
+    print(response.headers.get('X-Request-Id') or '')
