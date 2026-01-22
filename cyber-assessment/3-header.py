@@ -3,4 +3,7 @@ import sys
 import urllib.request
 
 with urllib.request.urlopen(sys.argv[1]) as response:
-    print(response.headers.get('X-Request-Id') or '')
+    xReqId = response.getheader('X-Request-Id')
+    if xReqId is None:
+        xReqId = ''
+    print(xReqId)
